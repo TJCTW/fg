@@ -1,0 +1,27 @@
+﻿
+html, body {
+    /* 設定body高度為100% 拉到視窗可視的大小 */
+    height: 100%;
+}
+.navbar-static-top {
+	
+	background-color: #17a2b8;
+}
+
+.navbar-default .navbar-text{
+	color: #ffffff;
+
+}
+.footer{
+    position: relative;
+    left: 0;
+    bottom: 0;
+	width: 100%;
+	margin-top:20px;
+	padding-top:20px;
+	background-color: #eeeeee;
+	color: #353535;
+}
+.container{
+	min-height: 90%;
+}

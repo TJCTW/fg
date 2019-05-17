@@ -1,0 +1,5 @@
+Django>2.2
+psycopg2
+django-import-export
+django-jet
+google-api-python-client==1.4.1

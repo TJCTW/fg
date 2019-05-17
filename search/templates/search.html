@@ -1,0 +1,1012 @@
+﻿{% load static %}
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+
+<!-- End Wayback Rewrite JS Include -->
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{% static "bower_components/bootstrap/dist/css/bootstrap.css" %}">
+<link rel="stylesheet" href="{% static "bower_components/font-awesome/css/font-awesome.min.css" %}">
+<link href="{% static "bower_components/style.css" %}" rel="stylesheet">
+
+<script src="{% static "bower_components/jquery/dist/jquery.min.js" %}"></script>
+<script src="{% static "bower_components/bootstrap/dist/js/bootstrap.min.js" %}"></script>
+<script>
+var schoolInfo;
+var groupInfo;
+var churchInfo;
+
+$(document).ready(function(){
+    $('#loadingModal').modal('show');
+	$("#selectSchool option").remove();
+	$.getJSON("./get/school", function(result){
+		schoolInfo=result;
+		$.each(schoolInfo, function(row_no, row){
+			if($("#fromSchool #selectCity").find(":selected").text()=="全選"){
+				$("#fromSchool #selectSchool").append($("<option></option>").attr("value", row["nick_name"]).text(row["nick_name"]));
+
+			}
+
+		});
+    });
+
+
+	$.getJSON("./get/group", function(result){
+		groupInfo=result;
+	});
+
+	$.getJSON("./get/church", function(result){
+		churchInfo=result;
+		$.each(result, function(row_no, row){
+			if(row["group"]!=null){
+                $("#fromChurch #selectChurch").append($("<option></option>").attr("value", row["name"]).text(row["name"]));
+            }
+        });
+		$('#loadingModal').modal('hide');
+	});
+
+
+
+});
+</script>
+<title>我要去團契 - 真耶穌教會台灣總會</title>
+
+
+<meta name="discription" content="大專團契與高級班是大專生的精神支柱與成長的園地。在這裡，我們用愛互相扶持與砥礪，用聖經真理為指引生活的光。以為主耶穌發光發熱為目標，讓大專在學的生活更加精彩，生命的意義不再只存在於理論而是彰顯於舉手投足之間。所有的大專生們！珍惜加入這個家的機會吧！時間不會為我們停下來喔！願神賜福給大家！">
+</head>
+
+<body><!-- BEGIN WAYBACK TOOLBAR INSERT -->
+
+
+
+
+
+<!-- END WAYBACK TOOLBAR INSERT -->
+
+
+<div id="navbar">
+	<nav class="navbar navbar-default navbar-static-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">
+					<img alt="TJC" src="{% static "images/logo.png" %}" height="140%">
+				</a>
+                <h3 class="navbar-text hidden-lg hidden-md">我要去團契</h3>
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<!--<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li><a href="http://tjcnorthunion.i234.me/">北區大專聯契</a></li>
+
+				</ul>
+
+			</div>-->
+			<!-- /.navbar-collapse -->
+		</div>
+	</nav>
+</div>
+
+<div class="container">
+	<div id="intro" class="jumbotron hidden-xs hidden-sm" style="color:#FFFFFF; background-color:#17a2b8;">
+		<h1>我要去團契</h1>
+	</div>
+	<div id="search" class="row">
+
+		<div id="selectSearch" class="col-md-4 col-sm-12">
+			<div class="page-header">
+				<h1><span class="glyphicon glyphicon-search" aria-hidden="true"></span> 搜尋</h1>
+			</div>
+			<div role="tabpanel">
+
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs" role="tablist">
+					<li role="presentation" class="active"><a href="#school" aria-controls="school" role="tab" data-toggle="tab">從學校</a></li>
+					<li role="presentation"><a href="#church" aria-controls="church" role="tab" data-toggle="tab">從教會</a></li>
+				</ul>
+				</br>
+				<!-- Tab panes -->
+
+				<div class="tab-content">
+					<div role="tabpanel" class="tab-pane fade in active" id="school">
+
+						<form role="form" id="fromSchool">
+							<div class="form-group">
+								<label for="selectCity">地區</label>
+								<select id="selectCity" class="form-control" onchange="schoolRefresh();">
+									<option selected="selected">全選</option>
+									<option>基隆</option>
+									<option>臺北</option>
+									<option>新北</option>
+									<option>桃園</option>
+									<option>新竹</option>
+									<option>苗栗</option>
+									<option>臺中</option>
+									<option>彰化</option>
+									<option>南投</option>
+									<option>雲林</option>
+									<option>嘉義</option>
+									<option>臺南</option>
+									<option>高雄</option>
+									<option>屏東</option>
+									<option>宜蘭</option>
+									<option>花蓮</option>
+									<option>臺東</option>
+									<!--<option>連江縣</option>-->
+									<option>金門</option>
+									<option>澎湖</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="selectSchool">學校名稱</label>
+								<select id="selectSchool" class="form-control">
+									<!--<option value=""></option>-->
+								</select>
+							</div>
+							<span id="helpBlock" class="help-block">請選擇「地區」和「學校名稱」尋找</span>
+							<button type="button" class="btn btn-info btn-block btn-lg" onclick="searchFromSchool();">尋找</button>
+						</form>
+					</div>
+					<div role="tabpanel" class="tab-pane fade" id="church">
+
+						<form role="form" id="fromChurch">
+							<div class="form-group">
+								<label for="selectCity">地區</label>
+								<select id="selectCity" class="form-control" onchange="churchRefresh();">
+									<option selected="selected">全選</option>
+									<option>基隆</option>
+									<option>台北</option>
+									<option>新北</option>
+									<option>桃園</option>
+									<option>新竹</option>
+									<option>苗栗</option>
+									<option>台中</option>
+									<option>彰化</option>
+									<option>南投</option>
+									<option>雲林</option>
+									<option>嘉義</option>
+									<option>台南</option>
+									<option>高雄</option>
+									<option>屏東</option>
+									<option>宜蘭</option>
+									<option>花蓮</option>
+									<option>台東</option>
+									<!--<option>連江</option>-->
+									<option>金門</option>
+									<option>澎湖</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="selectChurch">教會名稱</label>
+								<select id="selectChurch" class="form-control">
+								</select>
+							</div>
+							<span id="helpBlock" class="help-block">請選擇「地區」和「教會名稱」尋找</span>
+							<button type="button" class="btn btn-info btn-block btn-lg" onclick="searchFromChurch();">尋找</button>
+						</form>
+					</div>
+
+
+				</div>
+			</div>
+
+
+
+
+			<!-- Modal -->
+			<div class="modal fade" id="loadingModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+				<div class="modal-dialog modal-sm">
+					<div class="modal-content">
+
+						<div class="modal-body">
+							<p class="text-center text-muted">
+								<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+								<span class="sr-only">Loading...</span></br>
+								載入中...
+							</p>
+							<p class="text-center">
+								<a onclick="$('#loadingModal').modal('hide');">點此隱藏視窗</a>
+							</p>
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div id="introContent" class="col-md-8 hidden-xs hidden-sm"> <!--style="display:none"-->
+			<div class="page-header">
+				<h1>歡迎大家加入大專生專屬的屬靈大家庭</h1>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<blockquote>
+						<p>大專團契與高級班是大專生的精神支柱與成長的園地。</p>
+						<p>在這裡，我們用愛互相扶持與砥礪，用聖經真理為指引生活的光。</p>
+						<p>以為主耶穌發光發熱為目標，讓大專在學的生活更加精彩，</br>
+						生命的意義不再只存在於理論而是彰顯於舉手投足之間。</p>
+						<p>所有的大專生們！珍惜加入這個家的機會吧！</br>
+						時間不會為我們停下來喔！願神賜福給大家！</p>
+					</blockquote>
+
+				</div>
+			</div>
+		</div>
+		<div id="result" class="col-md-8 col-sm-12" style="display:none"> <!--style="display:none"-->
+			<div class="page-header">
+				<h1 id="school_name">結果</h1>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div id="resultContent">
+						<div class="thumbnail">
+							<div class="caption">
+								<h3 id="fellowship_name">name</h3>
+								<p>info</p>
+							</div>
+
+
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-offset-4 col-md-5 col-sm-12">
+							<button type="button" id="gotoFormButton" class="btn btn-warning btn-lg btn-block" data-toggle="modal" data-target="#gotoFormModal" onclick="checkGotoForm();"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> 我想去!!請和我聯絡!</button>
+
+						</div>
+						<div class="hidden-lg hidden-md col-sm-12">
+							<p> </p>
+						</div>
+						<div class="col-md-3 col-sm-12">
+							<button type="button" class="btn btn-danger btn-lg btn-block" data-toggle="modal" data-target="#reportFormModal"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> 回報錯誤</button>
+
+						</div>
+					</div>
+
+					<!-- Modal -->
+					<form role="form" id="gotoForm">
+						<div class="modal fade" id="gotoFormModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" onclick="hideModal('gotoFormModal');"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+										<h4 class="modal-title" id="myModalLabel">聯絡表單</h4>
+									</div>
+									<div class="modal-body">
+										<p>此表單為通知真耶穌教會台灣總會高教科與各大專團契做關懷使用，不另作他用，請依照個人意願填寫。</p>
+										<input type="hidden" id="inputRegion" value="">
+										<input type="hidden" id="inputDistrict" value="">
+										<input type="hidden" id="inputUnion" value="">
+										<input type="hidden" id="inputAdvanced" value="">
+										<input type="hidden" id="inputFellowship" value="">
+										<input type="hidden" id="inputGroup" value="">
+
+										<div class="form-group">
+											<label for="inputName">姓名</label>
+											<input type="text" class="form-control" id="inputName" placeholder="如何稱呼您?" required>
+										</div>
+										<div class="form-group">
+											<label for="inputGender">性別</label>
+											<label class="radio-inline">
+												<input type="radio" name="inputGender" value="男" checked> 男
+											</label>
+											<label class="radio-inline">
+												<input type="radio" name="inputGender" value="女"> 女
+											</label>
+										</div>
+										<div class="form-group">
+											<label for="inputChurch">原屬教會</label>
+											<input type="text" class="form-control" id="inputChurch" placeholder="教會名稱" required>
+										</div>
+										<div class="form-group">
+											<label for="inputSchool">就讀學校</label>
+											<input type="text" class="form-control" id="inputSchool" placeholder="學校名稱" required>
+										</div>
+										<div class="form-group">
+											<label for="inputDepartment">就讀科系</label>
+											<input type="text" class="form-control" id="inputDepartment" placeholder="科系名稱" required>
+										</div>
+										<div class="form-group">
+											<label for="inputPhone">連絡電話</label>
+											<input type="tel" class="form-control" id="inputPhone" placeholder="市內電話或是手機號碼" required>
+										</div>
+										<div class="form-group">
+											<label for="inputEmail">電子信箱</label>
+											<input type="email" class="form-control" id="inputEmail" placeholder="電子信箱" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputRemark">備註</label>
+                                            <textarea class="form-control" rows="3" id="inputRemark" placeholder="備註"></textarea>
+
+                                        </div>
+										<!--<div class="checkbox">
+											<label>
+											<input type="checkbox"> 同意<a>隱私權條款</a>
+											</label>
+										</div>-->
+
+
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-danger" onclick="hideModal('gotoFormModal');">取消</button>
+										<button type="button" class="btn btn-info" onclick="if(checkGotoForm()){goNextModal('gotoFormModal','gotoRecaptchaModal');}">下一步</button>
+									</div>
+
+								</div>
+							</div>
+						</div>
+						<!-- Modal -->
+						<div class="modal fade" id="gotoRecaptchaModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" onclick="hideModal('gotoRecaptchaModal');"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+										<h4 class="modal-title" id="myModalLabel">驗證</h4>
+									</div>
+									<div class="modal-body">
+										<div id="gotoReError" class="alert alert-danger" role="alert" style="display:none">reCAPTCHA驗證未完成</div>
+										<div id="gotoRecaptcha"></div>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-danger" onclick="hideModal('gotoRecaptchaModal');">取消</button>
+										<button type="button" class="btn btn-default" onclick="goNextModal('gotoRecaptchaModal','gotoFormModal');">上一步</button>
+										<button type="button" class="btn btn-info" onclick="sendGoto();">傳送</button>
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</form>
+
+					<form role="form" id="reportForm">
+						<!-- Modal -->
+						<div class="modal fade" id="reportFormModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" onclick="hideModal('reportFormModal');"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+										<h4 class="modal-title" id="myModalLabel">錯誤回報</h4>
+									</div>
+
+										<div class="modal-body">
+
+											<div class="form-group">
+												<label for="inputType">錯誤類型</label>
+												<select id="inputType" class="form-control">
+													<option>資訊錯誤</option>
+													<option>介面/功能問題</option>
+													<option>建議事項</option>
+													<option>其他...</option>
+												</select>
+											</div>
+											<div class="form-group">
+												<label for="inputContent">詳細內容</label>
+												<textarea class="form-control" rows="3" id="inputContent" placeholder="請詳細描述"></textarea>
+
+											</div>
+                                            <div class="form-group">
+                                                <label for="inputEmail">如何稱呼您(選填)</label>
+                                                <input type="text" class="form-control" id="inputName" placeholder="王曉明">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="inputEmail">聯絡電子信箱(選填)</label>
+                                                <input type="email" class="form-control" id="inputEmail" placeholder="電子信箱">
+                                            </div>
+										</div>
+										<div class="modal-footer">
+
+											<button type="button" class="btn btn-danger" onclick="hideModal('reportFormModal');">取消</button>
+											<button type="button" class="btn btn-info" onclick="if(checkReportForm()){goNextModal('reportFormModal','reportRecaptchaModal');}">下一步</button>
+										</div>
+
+								</div>
+							</div>
+						</div>
+						<!-- Modal -->
+						<div class="modal fade" id="reportRecaptchaModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" onclick="hideModal('reportRecaptchaModal');"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+										<h4 class="modal-title" id="myModalLabel">驗證</h4>
+									</div>
+									<div class="modal-body">
+										<div id="reportReError" class="alert alert-danger" role="alert" style="display:none">reCAPTCHA驗證未完成</div>
+										<div id="reportRecaptcha"></div>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-danger" onclick="hideModal('reportRecaptchaModal');">取消</button>
+										<button type="button" class="btn btn-default" onclick="goNextModal('reportRecaptchaModal','reportFormModal');">上一步</button>
+										<button type="button" class="btn btn-info" onclick="sendReport()">傳送</button>
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+				<!-- Modal -->
+				<div class="modal fade" id="churchInfoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+								<h4 class="modal-title" id="myModalLabel">教會名稱</h4>
+							</div>
+							<div class="modal-body">
+
+
+
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-danger" data-dismiss="modal">關閉</button>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<!-- Modal -->
+				<div class="modal fade" id="sendingModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+					<div class="modal-dialog modal-sm">
+						<div class="modal-content">
+
+							<div class="modal-body">
+								<p class="text-center text-muted">
+									<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+									<span class="sr-only">Loading...</span></br>
+									傳送中...
+								</p>
+								<p class="text-center">
+									<a onclick="$('#sendingModal').modal('hide');">點此隱藏視窗</a>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Modal -->
+				<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+					<div class="modal-dialog modal-sm">
+						<div class="modal-content">
+
+							<div class="modal-body">
+								<p class="text-center text-success">
+									<i class="fa fa-check-circle fa-5x" aria-hidden="true"></i>
+									<span class="sr-only">OK!</span></br>
+								</p>
+								<p class="text-center">傳送成功!</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Modal -->
+				<div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+					<div class="modal-dialog modal-sm">
+						<div class="modal-content">
+
+							<div class="modal-body">
+								<p class="text-center text-danger">
+									<i class="fa fa-times-circle fa-5x" aria-hidden="true"></i>
+									<span class="sr-only">Error!</span></br>
+								</p>
+								<p class="text-center">傳送失敗!</p>
+								<p class="text-center"><button type="utton" class="btn btn-danger" onclick="$('#errorModal').modal('hide');">關閉</button></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+
+	<p class="footer-text col-xs-8">
+	真耶穌教會 台灣總會</br>教牧處 高教科
+
+
+	</p>
+	<p class="footer-text col-xs-4 text-right">
+		<img src="http://sitestates.com/show/image/31659.jpg" style="border-right:4px #dcdcdc solid;"/>
+
+	</p>
+  </div>
+</footer>
+
+
+<script src="https://www.google.com/recaptcha/api.js?onload=CaptchaCallback&amp;render=explicit&amp;hl=zh-TW" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQjF6tY1XwvirA0EBZrLh4EVV8Bl-WGqA&amp;language=zh-TW" async defer></script>
+
+<script>
+
+
+	var nowModal='';
+	var prevModal='';
+	var nextModal='';
+	function goNextModal(now,next){
+		nowModal=now;
+		nextModal=next;
+		$('#'+nowModal).modal('hide');
+	}
+	function hideModal(now){
+		nowModal='';
+		prevModal=now;
+		$('#'+now).modal('hide');
+
+	}
+	var test='#reportFormModal';
+	$('.modal').on('hidden.bs.modal', function (e) {
+		if(e.target.id==nowModal)$('#'+nextModal).modal('show');
+	})
+
+
+
+
+
+
+	function schoolRefresh(){
+		//$('#loadingModal').modal('show');
+		$("#fromSchool #selectSchool option").remove();
+		$.each(schoolInfo, function(row_no, row){
+			if($("#fromSchool #selectCity").find(":selected").text()=="全選"){
+				$("#fromSchool #selectSchool").append($("<option></option>").attr("value", row["nick_name"]).text(row["nick_name"]));
+			}
+			else if(row["city"].match($("#fromSchool #selectCity").find(":selected").text())){
+				$("#fromSchool #selectSchool").append($("<option></option>").attr("value", row["nick_name"]).text(row["nick_name"]));
+
+			}
+		});
+
+		//$('#loadingModal').modal('hide');
+	}
+	function churchRefresh(){
+		//$('#loadingModal').modal('show');
+		$("#fromChurch #selectChurch option").remove();
+		$.each(churchInfo, function(row_no, row){
+			if($("#fromChurch #selectCity").find(":selected").text()=="全選"){
+				if(row["group"]!=null){
+                    $("#fromChurch #selectChurch").append($("<option></option>").attr("value", row["name"]).text(row["name"]));
+                }
+
+			}
+			else if(row["address"].match($("#fromChurch #selectCity").find(":selected").text())){
+				if(row["group"]!=null){
+                    $("#fromChurch #selectChurch").append($("<option></option>").attr("value", row["name"]).text(row["name"]));
+                }
+			}
+		});
+		//$('#loadingModal').modal('hide');
+
+
+	}
+	function clearResult(){
+		$("#inputUnion").val("");
+		$("#inputAdvanced").val("");
+		$("#inputFellowship").val("");
+		$("#inputGroup").val("");
+		$("#inputSchool").val("");
+		$("#result #resultContent").empty();
+	}
+	function showResult(groupId){
+        var group=groupInfo[groupId];
+		var groupContent='';
+
+		var groupName=group["name"];
+		var groupMeetTime=group["metting"];
+		var groupChurch=group["church"];
+
+
+		groupContent=$("<div></div>").addClass("thumbnail");
+		groupContent.append($("<h3></h3>").text(groupName));
+
+
+        if(groupMeetTime){
+            $.each(groupMeetTime , function(row_no, meet_time){
+                if(meet_time["date"]!=""){
+                    var date;
+                    switch(meet_time["date"]){
+                        case 'MON':
+                            date='一';
+                            break;
+                        case 'TUE':
+                            date='二';
+                            break;
+                        case 'WED':
+                            date='三';
+                            break;
+                        case 'THU':
+                            date='四';
+                            break;
+                        case 'FRI':
+                            date='五';
+                            break;
+                        case 'SAT':
+                            date='六';
+                            break;
+                        case 'SUN':
+                            date='日';
+                            break;
+                    }
+                    var time="星期"+date+" ";
+                    time+=meet_time["start_time"]+"~"+meet_time["end_time"];
+                    groupContent.append($("<p></p>").text("聚會時間 : "+time));
+                }
+            });
+        }
+
+
+		if(group["email"]!=""){
+			groupContent.append($("<p></p>").text("Email : "+group["email"]));
+		}
+		$.each(groupChurch , function(church_id, church){
+			if(church["name"]!=""){
+                console.log(church_id);
+                console.log(church);
+				groupContent.append($("<p></p>").text("關懷教會 : "+church["name"]+"  ").append($("<button type=\"button\" class=\"btn btn-info btn-sm\" onclick=\"churchInfoDisplay("+church_id+")\"></button>").html("<span class=\"glyphicon glyphicon-info-sign\" aria-hidden=\"true\"></span> 教會資訊")));
+			}
+		});
+
+
+		/*$.ajax({
+			url:"filename.php",
+			data:"&fellowship="+groupName,
+			type : "POST",
+			dataType:'text',
+			error:function(){
+				alert("error");
+
+			},
+
+			success:function(text){
+				if(text!=""){
+					var path=text.split(",");
+
+					var carousel=$("<div id=\"carousel-generic-"+groupName+"\" class=\"carousel slide\" data-ride=\"carousel\"></div>");
+					var indicators=$("<ol class=\"carousel-indicators\"></ol>").append("<li data-target=\"#carousel-generic-"+groupName+"\" data-slide-to=\"0\" class=\"active\"></li>");
+					for(var i=1;i<path.length-1;i++){
+						indicators.append("<li data-target=\"#carousel-generic-"+groupName+"\" data-slide-to=\""+i+"\"></li>");
+					}
+					carousel.append(indicators);
+					var inner=$("<div class=\"carousel-inner\" role=\listbox\"></div>");
+					for(var i=0;i<path.length-1;i++){
+						var item;
+						if(i==0)item=$("<div class=\"item active\">").append();
+						else item=$("<div class=\"item\">").append();
+						item.append("<img src=\"http://universitiesfellowship-tjchurch.rhcloud.com/各區團契活動照片/"+path[i]+"\" lowsrc=\"./images/lowsrc.jpg\" alt=\""+path[i]+"\">");
+						var caption=$("<div class=\"carousel-caption\"></div>");
+						var filepaths=path[i].split("/");
+						var filename=filepaths[filepaths.length-1].split(".");
+						caption.append($("<h3></h3>").text(filename[0]));
+						item.append(caption);
+						inner.append(item);
+					}
+					carousel.append(inner);
+					var controls=$("<a class=\"left carousel-control\" href=\"#carousel-generic-"+groupName+"\" role=\"button\" data-slide=\"prev\"><span class=\"glyphicon glyphicon-chevron-left\" aria-hidden=\"true\"></span><span class=\"sr-only\">Previous</span></a><a class=\"right carousel-control\" href=\"#carousel-generic-"+groupName+"\" role=\"button\" data-slide=\"next\"><span class=\"glyphicon glyphicon-chevron-right\" aria-hidden=\"true\"></span><span class=\"sr-only\">Next</span></a>");
+
+					carousel.append(controls);
+					groupContent.append(carousel);
+
+
+				}
+			}
+
+		});*/
+
+		$("#result #resultContent").append(groupContent);
+
+	}
+
+	function searchFromChurch() {
+		var church_name=$("#fromChurch #selectChurch").find(":selected").text();
+		$("#school_name").text(church_name);
+		$("#introContent").hide("fast");
+		$("#result").hide("fast");
+		clearResult();
+		$("#result #resultContent").html($("<p class=\"text-center text-muted\"><i class=\"fa fa-spinner fa-spin fa-3x fa-fw\"></i><span class=\"sr-only\">Loading...</span></br></p>"));
+		clearResult();
+        $.each(churchInfo, function(church_id, church){
+            //console.log(school);
+			if(church["name"]==church_name){
+                console.log(church);
+                groupList=church["group"];
+                $.each(groupList, function(group_id, group){
+                    console.log(group);
+                    showResult(group_id);
+                });
+
+			}
+		});
+		/*$.each(groupInfo, function(row_no, group){
+
+			$.each(group["church"] , function(row_no, church){
+				if(church["name"]==church_name){
+					showResult(group);
+					if(group["type"]=="union")$("#inputUnion").val(group["name"]);
+					if(group["type"]=="advanced")$("#inputAdvanced").val(group["name"]);
+					if(group["type"]=="fellowship")$("#inputFellowship").val(group["name"]);
+				}
+			});
+		});*/
+		$("#inputGroup").val("");
+
+
+
+		$("#result").show("slow");
+		if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)|| $(window).width()<992) {
+			$('html,body').animate({scrollTop:$('#result').offset().top}, 1000);
+
+		}
+
+	}
+
+	function searchFromSchool() {
+		var school_name=$("#fromSchool #selectSchool").find(":selected").text();
+		$("#school_name").text(school_name);
+		$("#introContent").hide("fast");
+		$("#result").hide("fast");
+		clearResult();
+		$("#result #resultContent").html($("<p class=\"text-center text-muted\"><i class=\"fa fa-spinner fa-spin fa-3x fa-fw\"></i><span class=\"sr-only\">Loading...</span></br></p>"));
+		clearResult();
+
+		$.each(schoolInfo, function(row_no, school){
+            //console.log(school);
+			if(school["nick_name"]==school_name){
+                groupList=school["group"];
+                $.each(groupList, function(groupId, group){
+                    console.log(group);
+                    showResult(groupId);
+                });
+
+			}
+		});
+		$("#inputSchool").val("");
+
+
+
+		$("#result").show("slow");
+		if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)|| $(window).width()<992) {
+			$('html,body').animate({scrollTop:$('#result').offset().top}, 1000);
+
+		}
+
+	}
+
+	function churchInfoDisplay(church_id) {
+		var content;
+        var church=churchInfo[church_id];
+        console.log(church);
+        console.log(church["name"]);
+        var name = church["name"];
+		$("#churchInfoModal .modal-dialog .modal-content .modal-header .modal-title").text(name);
+
+		$("#churchInfoModal .modal-dialog .modal-content .modal-body").html($("<p class=\"text-center text-muted\"><i class=\"fa fa-spinner fa-spin fa-3x fa-fw\"></i><span class=\"sr-only\">Loading...</span></br></p>"));
+
+        var temp;
+        $("#churchInfoModal .modal-dialog .modal-content .modal-body").html($("<p></p>").text("電話 : "+church["tel"]));
+        $("#churchInfoModal .modal-dialog .modal-content .modal-body").append($("<p></p>").text("地址 : "+church["address"]));
+        //if(church["time"]!="")$("#churchInfoModal .modal-dialog .modal-content .modal-body").append($("<p></p>").html("聚會時間 : "+church["time"]));
+        if(church["email"]!="")$("#churchInfoModal .modal-dialog .modal-content .modal-body").append($("<p></p>").text("E-mail : "+church["email"]));
+        //if(church["website"]!="")$("#churchInfoModal .modal-dialog .modal-content .modal-body").append($("<p></p>").html("網頁 : "+"<a href=\""+church["website"]+"\" target=\"_blank\">"+church["website"]+"</a>"));
+        $("#churchInfoModal .modal-dialog .modal-content .modal-body").append($("<div id=\"googleMap\" style=\"width:100%;height:350px;\"></div>"));
+        //$("#churchInfoModal .modal-dialog .modal-content .modal-body").append($("<img src=\"http://www.tjc.org.tw/Public/Upload/images/"+church["image"]+"\" width=\"100%\">"));
+
+
+        latitude=church["latitude"]/1000000;
+        longitude=church["longitude"]/1000000;
+
+        contentString='<div id="content">'+
+            '<h5>'+name+'</h5>'+
+            '<p>地址 : '+church["address"]+'</p>'+
+            '<a target=\"_blank\" jstcache=\"6\" href=\"https://www.google.com/maps/place/'+church["address"]+' 真耶穌教會'+name+'/@'+latitude+','+longitude+'\"> <span>在 Google 地圖上查看</span> </a>'+
+            '</div>';
+
+		$('#churchInfoModal').modal('show');
+
+	}
+	$('#churchInfoModal').on('shown.bs.modal', function (e) {
+		initMap();
+	})
+
+	var latitude;
+	var longitude;
+	var contentString;
+	function initMap() {
+		var pos = {lat: latitude, lng: longitude};
+		var map = new google.maps.Map(document.getElementById('googleMap'), {
+			zoom: 16,
+			center: pos,
+			mapTypeControl: false,
+			streetViewControl: false
+		});
+
+		var infowindow = new google.maps.InfoWindow({
+			content: contentString
+		});
+
+		var marker = new google.maps.Marker({
+			position: pos,
+			map: map,
+			title: 'Church'
+		});
+		infowindow.open(map, marker);
+		marker.addListener('click', function() {
+			infowindow.open(map, marker);
+		});
+	}
+
+
+
+	var gotoRecaptcha;
+	var reportRecaptcha;
+	var CaptchaCallback = function() {
+		gotoRecaptcha=grecaptcha.render('gotoRecaptcha', {'sitekey' : '6LfG4iUTAAAAAHLyoeL8itfEqRoGu-arEtqACvp5'});
+		reportRecaptcha=grecaptcha.render('reportRecaptcha', {'sitekey' : '6LfG4iUTAAAAAHLyoeL8itfEqRoGu-arEtqACvp5'});
+	};
+
+	function sendGoto(){
+		if(grecaptcha.getResponse(gotoRecaptcha)==''){
+			$("#gotoReError").show("fast");
+
+		}
+		else{
+			$('#gotoRecaptchaModal').modal('hide');
+			$('#sendingModal').modal('show');
+			$.ajax({
+				url:"./post/contactus",
+				data:"&union="+$('#gotoForm #inputUnion').val()+
+				"&advanced="+$('#gotoForm #inputAdvanced').val()+
+				"&fellowship="+$('#gotoForm #inputFellowship').val()+
+				"&group="+$('#gotoForm #inputGroup').val()+
+				"&name="+$('#gotoForm #inputName').val()+
+				"&gender="+$('#gotoForm input[name="inputGender"]:checked').val()+
+				"&church="+$('#gotoForm #inputChurch').val()+
+				"&school="+$('#gotoForm #inputSchool').val()+
+				"&department="+$('#gotoForm #inputDepartment').val()+
+				"&phone="+$('#gotoForm #inputPhone').val()+
+				"&email="+$('#gotoForm #inputEmail').val()+
+				"&remark="+$('#gotoForm #inputRemark').val()+
+				"&g-recaptcha-response="+grecaptcha.getResponse(gotoRecaptcha),
+				type : "POST",
+				dataType:"text",
+				error:function(){
+					$('#sendingModal').modal('hide');
+					$('#errorModal').modal('show');
+					$("#gotoReError").hide("fast");
+					grecaptcha.reset(gotoRecaptcha);
+				},
+				success:function(result){
+					$('#sendingModal').modal('hide');
+					$('#successModal').modal('show');
+					$("#gotoReError").hide("fast");
+					$('#inputName').val('');
+					$('#inputChurch').val('');
+					$('#inputSchool').val('');
+					$('#inputDepartment').val('');
+					$('#inputPhone').val('');
+					$('#inputEmail').val('');
+					grecaptcha.reset(gotoRecaptcha);
+				}
+			});
+
+		}
+	}
+	function sendReport(){
+		if(grecaptcha.getResponse(reportRecaptcha)==''){
+			$("#reportReError").show("fast");
+		}
+		else{
+			$('#reportRecaptchaModal').modal('hide');
+			$('#sendingModal').modal('show');
+			$.ajax({
+				url:"./post/report",
+				data:"&type="+$('#reportForm #inputType').val()+
+				"&content="+$('#reportForm #inputContent').val()+
+				"&name="+$('#reportForm #inputName').val()+
+				"&email="+$('#reportForm #inputEmail').val()+
+				"&g-recaptcha-response="+grecaptcha.getResponse(reportRecaptcha),
+				type : "POST",
+				dataType:"text",
+				error:function(){
+					$('#sendingModal').modal('hide');
+					$('#errorModal').modal('show');
+					$("#reportReError").hide("fast");
+					grecaptcha.reset(reportRecaptcha);
+
+				},
+				success:function(result){
+					$('#sendingModal').modal('hide');
+					$('#successModal').modal('show');
+					$("#reportReError").hide("fast");
+					$('#inputContent').val('');
+					grecaptcha.reset(reportRecaptcha);
+				}
+			});
+
+		}
+	}
+
+	$('#successModal').on('shown.bs.modal', function (e) {
+		$('#successModal').modal('hide');
+	})
+
+	$("#gotoForm input").on("keyup", function(){
+		checkGotoForm();
+	});
+	$("#gotoForm input").on("focus", function(){
+		checkGotoForm();
+	});
+
+	$("#gotoForm").on("click", function(){
+		checkGotoForm();
+	});
+
+	function checkGotoForm(){
+		var isAllChecked=true;
+		$("#gotoForm").find(".form-group").removeClass("has-error");
+		$("#gotoForm").find(".form-group").addClass("has-success");
+		$("#gotoForm").find("#helpBlock").remove();
+		if($('#inputName').val()==''){
+			$('#inputName').parent().removeClass("has-success");
+			$('#inputName').parent().addClass("has-error");
+			$('#inputName').parent().append("<span id=\"helpBlock\" class=\"help-block\">不可為空</span>");
+			isAllChecked=false;
+		}
+		if($('#inputChurch').val()==''){
+			$('#inputChurch').parent().removeClass("has-success");
+			$('#inputChurch').parent().addClass("has-error");
+			$('#inputChurch').parent().append("<span id=\"helpBlock\" class=\"help-block\">不可為空</span>");
+			isAllChecked=false;
+		}
+		if($('#inputSchool').val()==''){
+			$('#inputSchool').parent().removeClass("has-success");
+			$('#inputSchool').parent().addClass("has-error");
+			$('#inputSchool').parent().append("<span id=\"helpBlock\" class=\"help-block\">不可為空</span>");
+			isAllChecked=false;
+		}
+		if($('#inputDepartment').val()==''){
+			$('#inputDepartment').parent().removeClass("has-success");
+			$('#inputDepartment').parent().addClass("has-error");
+			$('#inputDepartment').parent().append("<span id=\"helpBlock\" class=\"help-block\">不可為空</span>");
+			isAllChecked=false;
+		}
+		if($('#inputPhone').val()==''){
+			$('#inputPhone').parent().removeClass("has-success");
+			$('#inputPhone').parent().addClass("has-error");
+			$('#inputPhone').parent().append("<span id=\"helpBlock\" class=\"help-block\">不可為空</span>");
+			isAllChecked=false;
+		}
+		if($('#inputEmail').val()==''){
+			$('#inputEmail').parent().removeClass("has-success");
+			$('#inputEmail').parent().addClass("has-error");
+			$('#inputEmail').parent().append("<span id=\"helpBlock\" class=\"help-block\">不可為空</span>");
+			isAllChecked=false;
+		}
+		return isAllChecked;
+	}
+
+	function checkReportForm(){
+		var isAllChecked=true;
+		$("#reportForm").find(".form-group").removeClass("has-error");
+		$("#reportForm").find(".form-group").addClass("has-success");
+		$("#reportForm").find("#helpBlock").remove();
+		if($('#inputContent').val()==''){
+			$('#inputContent').parent().removeClass("has-success");
+			$('#inputContent').parent().addClass("has-error");
+			$('#inputContent').parent().append("<span id=\"helpBlock\" class=\"help-block\">不可為空</span>");
+			isAllChecked=false;
+		}
+		return isAllChecked;
+	}
+
+
+</script>
+
+</body>
+
+</html>

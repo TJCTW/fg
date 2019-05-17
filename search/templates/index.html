@@ -1,0 +1,208 @@
+{% load static %}
+<!doctype html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+
+    <title>我要去團契</title>
+</head>
+<style>
+    @import url(https://fonts.googleapis.com/earlyaccess/cwtexyen.css);
+
+    body {
+        font-family: 'cwTeXYen';
+        font-size: 1.2em;
+
+    }
+
+    html, body {
+        height: 100% !important;
+        width: 100% !important;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .container {
+        height: 900% !important;
+        width: 100% !important;
+    }
+
+    .page {
+        height: 11.111% !important;
+        width: 100% !important;
+        padding: 5%;
+    }
+
+    .imgtitle {
+        color: #63C;
+        font-size: x-large;
+        font-weight: bold;
+    }
+</style>
+
+<body>
+<div id="navbar">
+    <nav class="navbar navbar-dark bg-info  navbar-static-top" role="navigation">
+        
+			<div class="navbar-header">
+            <a href="#" class="navbar-brand d-flex align-items-center">
+                <img alt="TJC" src="{% static "images/logo.png" %}" height="10%">
+                <h3 class="hidden-lg hidden-md">我要去團契</h3>
+            </a>
+        </div>
+    </nav>
+</div>
+    <div class="container">
+        <div class="page" id="page1">
+            <div class="row" style="max-height:90%">
+                <div class="col-md text-center">
+                    <img src="{% static "img/fg-01-768.png" %}" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
+                        style="max-height:80%">
+                    <!-- <img src="{% static "img/fg-01-768.png" srcset="fg-01-768.png 768w,fg-01-992.png 992w" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
+                        alt=""> -->
+
+                </div>
+            </div>
+            <div class="row" style="max-height:5%">
+                <div class="col-md text-center">
+                    <a class="btn btn-info btn-lg" href="./search" role="button">開始找團契</a>
+                    <a class="btn btn-outline-info btn-lg" role="button" onclick="$('html, body').animate({scrollTop: $('#page2').offset().top}, 400);">了解更多</a>
+                </div>
+            </div>
+
+        </div>
+        <div class="page" id="page2">
+            <div class="row">
+                <div class="col-md text-center">
+                    <span class="imgtitle">大學時我都在3個家之間移動</span><br>
+                    <span style="">爸爸媽媽的家、宿舍的家，<br>
+                        還有一個家是教會與團契</span><br>
+                    <span style="">第3個家有學校的同靈、<br>
+                        畢業的學長姐、輔導大哥大姊、</span><br>
+                    <span style="">教會的叔叔、阿姨、阿公、阿嬤、傳道。</span></div>
+            </div>
+            <div class="row">
+                <div class="col-md text-center">
+                    <img src="{% static "img/fg-02-1200.png" %}" srcset="{% static "img/fg-02-768.png" %} 768w,{% static "img/fg-02-992.png" %} 992w" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
+                        alt="">
+                </div>
+            </div>
+        </div>
+        <div class="page" id="page3">
+            <div class="row justify-content-end">
+                <div class="col-md-6 text-center">
+                    <img src="{% static "img/fg-03-400.png" %}" srcset="{% static "img/fg-03-256.png" %} 768w,{% static "img/fg-03-330.png" %} 992w" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
+                        alt=""><br>
+                    <span class="imgtitle">團契都在做什麼？</span><br>
+                    <span style="">從入學到結婚，這些人一直都在，陪伴著你！</span><br>
+                    <span style="">在陌生的環境中互相扶持。</span><br>
+                </div>
+            </div>
+        </div>
+        <div class="page" id="page4">
+            <div class="row">
+                <div class="col-md-6 text-center">
+                    <img src="{% static "img/fg-04-600.png" %}" srcset="{% static "img/fg-04-384.png" %} 768w,{% static "img/fg-04-496.png" %} 992w" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
+                        alt=""><br>
+                    <span>一起吃飯、一起唸書</span><br>
+                    <span style="">吃學長姊送來的期中夜點</span><br>
+                    <span style="">在挑燈夜戰時吞ALL-PASS糖</span><br>
+                </div>
+                <div class="col-md-6 text-center">
+
+                </div>
+            </div>
+        </div>
+        <div class="page">
+            <div class="row justify-content-end">
+                <div class="col-md-6 text-center">
+                    <img src="{% static "img/fg-05-600.png" %}" srcset="{% static "img/fg-05-384.png" %} 768w,{% static "img/fg-05-496.png" %} 992w" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
+                        alt="">
+
+                </div>
+            </div>
+        </div>
+        <div class="page">
+            <div class="row">
+                <div class="col-md-6 text-center">
+                    <img src="{% static "img/fg-06-900.png" %}" srcset="{% static "img/fg-06-576.png" %} 768w,{% static "img/fg-06-744.png" %} 992w" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
+                        alt="">
+                </div>
+            </div>
+        </div>
+        <div class="page">
+            <div class="row">
+                <div class="col-md-6 text-right m-auto d-none d-md-block">
+                    <span style="">一起讀經、一起禱告、一起追求信仰</span><br>
+                </div>
+                <div class="col-md-6 text-center m-auto d-md-none">
+                    <span style=""><br>
+                        一起讀經、一起禱告、一起追求信仰</span><br>
+                    <br>
+
+                </div>
+                <div class="col-md-6 text-center">
+                    <img src="{% static "img/fg-07-600.png" %}" srcset="{% static "img/fg-07-384.png" %} 768w,{% static "img/fg-07-496.png" %} 992w" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
+                        alt="">
+                </div>
+            </div>
+        </div>
+        <div class="page">
+            <div class="row">
+                <div class="col-md-6 text-center">
+                    <img src="{% static "img/fg-08-1200.png" %}" srcset="{% static "img/fg-08-768.png" %} 768w,{% static "img/fg-08-992.png" %} 992w" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
+                        alt="">
+                </div>
+                <div class="col-md-6 text-left m-auto">
+                    <div class="text-left d-none d-md-block">
+                        <span style="">一起出遊</span><br>
+                        <span style="">體驗生活的美好</span><br>
+                    </div>
+                    <div class="text-center m-auto d-md-none">
+                        <span style="">一起出遊</span><br>
+                        <span style="">體驗生活的美好</span><br>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="page">
+            <div class="row justify-content-center" style="max-height:98%">
+                <div class="col-md text-center">
+                    <img src="{% static "img/fg-09-1200.png" %}" srcset="{% static "img/fg-09-768.png" %} 768w,{% static "img/fg-09-992.png" %} 992w" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
+                        alt="" style="max-height:50%">
+                    <div style="max-height:20%">
+                        <p><span style="">屬靈同伴的情誼</span><br>
+                            <span style="">是神所賜美好的恩典</span>
+                            <p>&nbsp; </p>
+                            <p>&nbsp; </p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row" style="max-height:2%">
+                <div class="col-md text-center">
+                    <a class="btn btn-info btn-lg" href="./search" role="button">開始找團契</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

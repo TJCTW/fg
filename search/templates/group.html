@@ -1,0 +1,58 @@
+
+{{group.id}}<br>
+{{group.name}}<br>
+{{group.group_type}}<br>
+{{group.tel}}<br>
+{{group.email}}<br>
+{{group.remark}}<br>
+{% if groupMeetingTimes %}
+    <ul>
+    {% for groupMeetingTime in groupMeetingTimes %}
+        {{groupMeetingTime.date}}<br>
+        {{groupMeetingTime.start_time}}<br>
+        {{groupMeetingTime.end_time}}<br>
+        {{groupMeetingTime.meeting_type}}<br>
+        {{groupMeetingTime.remark}}<br>
+
+
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No groupMeetingTimes are available.</p>
+{% endif %}
+
+
+{% if groupWithSchools %}
+    <ul>
+    {% for groupWithSchool in groupWithSchools %}
+        {{groupWithSchool.school.name}}<br>
+        {{groupWithSchool.school.nick_name}}<br>
+        {{groupWithSchool.school.local}}<br>
+        {{groupWithSchool.school.city}}<br>
+
+
+
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No groupMeetingTimes are available.</p>
+{% endif %}
+
+{% if groupWithChurchs %}
+    <ul>
+    {% for groupWithChurch in groupWithChurchs %}
+        {{groupWithChurch.church.name}}<br>
+        {{groupWithChurch.church.latitude}}<br>
+        {{groupWithChurch.church.longitude}}<br>
+        {{groupWithChurch.church.address}}<br>
+        {{groupWithChurch.church.tel}}<br>
+
+
+
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No groupMeetingTimes are available.</p>
+{% endif %}
+{% load static %}
+{% static "my_app/example.jpg" %}

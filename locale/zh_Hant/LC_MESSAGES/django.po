@@ -1,0 +1,191 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-17 00:15+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: fg/settings.py:125
+msgid "English"
+msgstr "英文"
+
+#: fg/settings.py:126
+msgid "Simplified Chinese"
+msgstr "簡體中文"
+
+#: fg/settings.py:127
+msgid "Traditional Chinese"
+msgstr "正體中文"
+
+#: search/models.py:6 search/models.py:24 search/models.py:43
+msgid "name"
+msgstr "名稱"
+
+#: search/models.py:7
+msgid "sec1"
+msgstr "區域1"
+
+#: search/models.py:8
+msgid "sec2"
+msgstr "區域2"
+
+#: search/models.py:9
+msgid "latitude"
+msgstr "緯度"
+
+#: search/models.py:10
+msgid "longitude"
+msgstr "經度"
+
+#: search/models.py:11
+msgid "gps"
+msgstr "gps"
+
+#: search/models.py:12
+msgid "address"
+msgstr "地址"
+
+#: search/models.py:13 search/models.py:46
+msgid "tel"
+msgstr "電話"
+
+#: search/models.py:14 search/models.py:47
+msgid "email"
+msgstr "email"
+
+#: search/models.py:15 search/models.py:52 search/models.py:82
+msgid "remark"
+msgstr "備註"
+
+#: search/models.py:20 search/models.py:21
+msgid "Church info"
+msgstr "教會資料"
+
+#: search/models.py:25
+msgid "nick name"
+msgstr "簡稱"
+
+#: search/models.py:26
+msgid "local"
+msgstr "地區"
+
+#: search/models.py:27
+msgid "city"
+msgstr "城市"
+
+#: search/models.py:31 search/models.py:32
+msgid "School info"
+msgstr "學校資料"
+
+#: search/models.py:39
+msgid "Fellowship"
+msgstr "團契"
+
+#: search/models.py:40
+msgid "Advanced"
+msgstr "高級班"
+
+#: search/models.py:41
+msgid "Union"
+msgstr "聯契"
+
+#: search/models.py:45
+msgid "type"
+msgstr "類型"
+
+#: search/models.py:57 search/models.py:58
+msgid "Group info"
+msgstr "團體資料"
+
+#: search/models.py:64
+msgid "SUN"
+msgstr "日"
+
+#: search/models.py:65
+msgid "MON"
+msgstr "一"
+
+#: search/models.py:66
+msgid "TUE"
+msgstr "二"
+
+#: search/models.py:67
+msgid "WED"
+msgstr "三"
+
+#: search/models.py:68
+msgid "THU"
+msgstr "四"
+
+#: search/models.py:69
+msgid "FRI"
+msgstr "五"
+
+#: search/models.py:70
+msgid "SAT"
+msgstr "六"
+
+#: search/models.py:73
+msgid "Regular"
+msgstr "一般"
+
+#: search/models.py:74
+msgid "Bible Study"
+msgstr "查經"
+
+#: search/models.py:75
+msgid "Other"
+msgstr "其他"
+
+#: search/models.py:77 search/models.py:95 search/models.py:106
+msgid "group"
+msgstr "團體"
+
+#: search/models.py:78
+msgid "date"
+msgstr "日期"
+
+#: search/models.py:79
+msgid "start time"
+msgstr "開始時間"
+
+#: search/models.py:80
+msgid "end time"
+msgstr "結束時間"
+
+#: search/models.py:81
+msgid "meeting type"
+msgstr "聚會類型"
+
+#: search/models.py:87 search/models.py:88
+msgid "Group Meeting Time"
+msgstr "團體聚會時間"
+
+#: search/models.py:96
+msgid "school"
+msgstr "學校"
+
+#: search/models.py:100 search/models.py:101
+msgid "Group With School"
+msgstr "團體所屬學校"
+
+#: search/models.py:107
+msgid "church"
+msgstr "教會"
+
+#: search/models.py:109 search/models.py:110
+msgid "Group With Church"
+msgstr "團體所屬教會"

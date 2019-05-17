@@ -1,0 +1,182 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-17 00:09+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: fg/settings.py:125
+msgid "English"
+msgstr ""
+
+#: fg/settings.py:126
+msgid "Simplified Chinese"
+msgstr ""
+
+#: fg/settings.py:127
+msgid "Traditional Chinese"
+msgstr ""
+
+#: search/models.py:6 search/models.py:24 search/models.py:43
+msgid "name"
+msgstr ""
+
+#: search/models.py:7
+msgid "sec1"
+msgstr ""
+
+#: search/models.py:8
+msgid "sec2"
+msgstr ""
+
+#: search/models.py:9
+msgid "latitude"
+msgstr ""
+
+#: search/models.py:10
+msgid "longitude"
+msgstr ""
+
+#: search/models.py:11
+msgid "gps"
+msgstr ""
+
+#: search/models.py:12
+msgid "address"
+msgstr ""
+
+#: search/models.py:13 search/models.py:46
+msgid "tel"
+msgstr ""
+
+#: search/models.py:14 search/models.py:47
+msgid "email"
+msgstr ""
+
+#: search/models.py:15 search/models.py:52 search/models.py:82
+msgid "remark"
+msgstr ""
+
+#: search/models.py:20 search/models.py:21
+msgid "Church info"
+msgstr ""
+
+#: search/models.py:25
+msgid "nick name"
+msgstr ""
+
+#: search/models.py:26
+msgid "local"
+msgstr ""
+
+#: search/models.py:27
+msgid "city"
+msgstr ""
+
+#: search/models.py:31 search/models.py:32
+msgid "School info"
+msgstr ""
+
+#: search/models.py:39
+msgid "Fellowship"
+msgstr ""
+
+#: search/models.py:40
+msgid "Advanced"
+msgstr ""
+
+#: search/models.py:41
+msgid "Union"
+msgstr ""
+
+#: search/models.py:45
+msgid "type"
+msgstr ""
+
+#: search/models.py:57 search/models.py:58
+msgid "Group info"
+msgstr ""
+
+#: search/models.py:64
+msgid "SUN"
+msgstr ""
+
+#: search/models.py:65
+msgid "MON"
+msgstr ""
+
+#: search/models.py:66
+msgid "TUE"
+msgstr ""
+
+#: search/models.py:67
+msgid "WED"
+msgstr ""
+
+#: search/models.py:68
+msgid "THU"
+msgstr ""
+
+#: search/models.py:69
+msgid "FRI"
+msgstr ""
+
+#: search/models.py:70
+msgid "SAT"
+msgstr ""
+
+#: search/models.py:73
+msgid "Regular"
+msgstr ""
+
+#: search/models.py:74
+msgid "Bible Study"
+msgstr ""
+
+#: search/models.py:75
+msgid "Other"
+msgstr ""
+
+#: search/models.py:77
+msgid "group"
+msgstr ""
+
+#: search/models.py:78
+msgid "date"
+msgstr ""
+
+#: search/models.py:79
+msgid "start time"
+msgstr ""
+
+#: search/models.py:80
+msgid "end time"
+msgstr ""
+
+#: search/models.py:81
+msgid "meeting type"
+msgstr ""
+
+#: search/models.py:87 search/models.py:88
+msgid "Group Meeting Time"
+msgstr ""
+
+#: search/models.py:100 search/models.py:101
+msgid "Group With School"
+msgstr ""
+
+#: search/models.py:109 search/models.py:110
+msgid "Group With Church"
+msgstr ""

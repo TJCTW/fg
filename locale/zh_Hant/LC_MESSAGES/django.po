@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-17 00:15+0800\n"
+"POT-Creation-Date: 2019-06-21 01:58+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,162 +30,229 @@ msgstr "簡體中文"
 msgid "Traditional Chinese"
 msgstr "正體中文"
 
-#: search/models.py:6 search/models.py:24 search/models.py:43
+#: search/apps.py:7
+msgid "Search Data Management"
+msgstr "資料管理"
+
+#: search/models.py:7 search/models.py:44 search/models.py:74
+#: search/models.py:187 search/models.py:212
 msgid "name"
 msgstr "名稱"
 
-#: search/models.py:7
+#: search/models.py:8
 msgid "sec1"
 msgstr "區域1"
 
-#: search/models.py:8
+#: search/models.py:9
 msgid "sec2"
 msgstr "區域2"
 
-#: search/models.py:9
+#: search/models.py:10
 msgid "latitude"
 msgstr "緯度"
 
-#: search/models.py:10
+#: search/models.py:11
 msgid "longitude"
 msgstr "經度"
 
-#: search/models.py:11
+#: search/models.py:12
 msgid "gps"
 msgstr "gps"
 
-#: search/models.py:12
+#: search/models.py:13
 msgid "address"
 msgstr "地址"
 
-#: search/models.py:13 search/models.py:46
+#: search/models.py:15 search/models.py:78
 msgid "tel"
 msgstr "電話"
 
-#: search/models.py:14 search/models.py:47
+#: search/models.py:16 search/models.py:79 search/models.py:193
+#: search/models.py:213
 msgid "email"
 msgstr "email"
 
-#: search/models.py:15 search/models.py:52 search/models.py:82
+#: search/models.py:18 search/models.py:85 search/models.py:130
+#: search/models.py:194
 msgid "remark"
 msgstr "備註"
 
-#: search/models.py:20 search/models.py:21
+#: search/models.py:39 search/models.py:40
 msgid "Church info"
 msgstr "教會資料"
 
-#: search/models.py:25
+#: search/models.py:45
 msgid "nick name"
 msgstr "簡稱"
 
-#: search/models.py:26
+#: search/models.py:46
 msgid "local"
 msgstr "地區"
 
-#: search/models.py:27
+#: search/models.py:47
 msgid "city"
 msgstr "城市"
 
-#: search/models.py:31 search/models.py:32
+#: search/models.py:61 search/models.py:62
 msgid "School info"
 msgstr "學校資料"
 
-#: search/models.py:39
+#: search/models.py:70
 msgid "Fellowship"
 msgstr "團契"
 
-#: search/models.py:40
+#: search/models.py:71
 msgid "Advanced"
 msgstr "高級班"
 
-#: search/models.py:41
+#: search/models.py:72
 msgid "Union"
 msgstr "聯契"
 
-#: search/models.py:45
+#: search/models.py:76
 msgid "type"
 msgstr "類型"
 
-#: search/models.py:57 search/models.py:58
+#: search/models.py:100 search/models.py:101
 msgid "Group info"
-msgstr "團體資料"
+msgstr "團契資料"
 
-#: search/models.py:64
+#: search/models.py:106
 msgid "SUN"
 msgstr "日"
 
-#: search/models.py:65
+#: search/models.py:107
 msgid "MON"
 msgstr "一"
 
-#: search/models.py:66
+#: search/models.py:108
 msgid "TUE"
 msgstr "二"
 
-#: search/models.py:67
+#: search/models.py:109
 msgid "WED"
 msgstr "三"
 
-#: search/models.py:68
+#: search/models.py:110
 msgid "THU"
 msgstr "四"
 
-#: search/models.py:69
+#: search/models.py:111
 msgid "FRI"
 msgstr "五"
 
-#: search/models.py:70
+#: search/models.py:112
 msgid "SAT"
 msgstr "六"
 
-#: search/models.py:73
+#: search/models.py:115
 msgid "Regular"
 msgstr "一般"
 
-#: search/models.py:74
+#: search/models.py:116
 msgid "Bible Study"
 msgstr "查經"
 
-#: search/models.py:75
+#: search/models.py:117 search/models.py:184 search/models.py:208
 msgid "Other"
 msgstr "其他"
 
-#: search/models.py:77 search/models.py:95 search/models.py:106
+#: search/models.py:120 search/models.py:151 search/models.py:165
 msgid "group"
-msgstr "團體"
+msgstr "團契"
 
-#: search/models.py:78
+#: search/models.py:122
 msgid "date"
 msgstr "日期"
 
-#: search/models.py:79
+#: search/models.py:124
 msgid "start time"
 msgstr "開始時間"
 
-#: search/models.py:80
+#: search/models.py:126
 msgid "end time"
 msgstr "結束時間"
 
-#: search/models.py:81
+#: search/models.py:128
 msgid "meeting type"
 msgstr "聚會類型"
 
-#: search/models.py:87 search/models.py:88
+#: search/models.py:145 search/models.py:146
 msgid "Group Meeting Time"
-msgstr "團體聚會時間"
+msgstr "團契聚會時間"
 
-#: search/models.py:96
+#: search/models.py:153 search/models.py:190
 msgid "school"
 msgstr "學校"
 
-#: search/models.py:100 search/models.py:101
+#: search/models.py:159 search/models.py:160
 msgid "Group With School"
-msgstr "團體所屬學校"
+msgstr "團契所屬學校"
 
-#: search/models.py:107
+#: search/models.py:167 search/models.py:189
 msgid "church"
 msgstr "教會"
 
-#: search/models.py:109 search/models.py:110
+#: search/models.py:170 search/models.py:171
 msgid "Group With Church"
-msgstr "團體所屬教會"
+msgstr "團契所屬教會"
+
+#: search/models.py:177
+msgid "MALE"
+msgstr "男"
+
+#: search/models.py:178
+msgid "FEMALE"
+msgstr "女"
+
+#: search/models.py:181 search/models.py:205
+msgid "Unprocessed"
+msgstr "未處理"
+
+#: search/models.py:182 search/models.py:206
+msgid "Processing"
+msgstr "正在處理"
+
+#: search/models.py:183 search/models.py:207
+msgid "Processed"
+msgstr "已處理"
+
+#: search/models.py:186
+msgid "suggestion group"
+msgstr "建議團契"
+
+#: search/models.py:188
+msgid "gender"
+msgstr "性別"
+
+#: search/models.py:191
+msgid "department"
+msgstr "科系"
+
+#: search/models.py:192
+msgid "phone"
+msgstr "電話"
+
+#: search/models.py:195 search/models.py:214
+msgid "status"
+msgstr "狀態"
+
+#: search/models.py:196 search/models.py:215
+msgid "reply_at"
+msgstr "回覆於"
+
+#: search/models.py:200 search/models.py:201
+msgid "Contact Report"
+msgstr "聯絡回報"
+
+#: search/models.py:210
+msgid "issue type"
+msgstr "錯誤類型"
+
+#: search/models.py:211
+msgid "content"
+msgstr "內容"
+
+#: search/models.py:219 search/models.py:220
+msgid "Issue Report"
+msgstr "錯誤回報"

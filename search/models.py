@@ -169,3 +169,52 @@ class GroupWithChurch(models.Model):
     class Meta:
         verbose_name = _("Group With Church")
         verbose_name_plural = _("Group With Church")
+
+
+    
+class ContactReport(models.Model):
+    GENDER_CHOICES = [
+        ('MALE', _("MALE")),
+        ('FEMALE', _("FEMALE"))
+    ]
+    STATUS_CHOICES = [
+        ('UNP', _("Unprocessed")),
+        ('PING', _("Processing")),
+        ('PED', _("Processed")),
+        ('O', _("Other"))
+    ]
+    group = models.CharField(max_length=50, verbose_name=_("suggestion group"))
+    name = models.CharField(max_length=50, verbose_name=_("name"))
+    gender = models.CharField(max_length=8, choices=GENDER_CHOICES, verbose_name=_("gender"))
+    church = models.CharField(max_length=50,verbose_name=_("church"))
+    school = models.CharField(max_length=50,verbose_name=_("school"))
+    department = models.CharField(max_length=50, verbose_name=_("department"))
+    phone = models.CharField(max_length=20, verbose_name=_("phone"))
+    email = models.EmailField(blank=True, null=True, verbose_name=_("email"))
+    remark = models.TextField(verbose_name=_("remark"))
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='UNP', verbose_name=_("status"))
+    reply_at = models.DateTimeField(auto_now_add=True, verbose_name=_("reply_at"))
+    def __str__(self):
+        return "%s. %s" % (self.id, self.name)
+    class Meta:
+        verbose_name = _("Contact Report")
+        verbose_name_plural = _("Contact Report")
+
+class IssueReport(models.Model):
+    STATUS_CHOICES = [
+        ('UNP', _("Unprocessed")),
+        ('PING', _("Processing")),
+        ('PED', _("Processed")),
+        ('O', _("Other"))
+    ]
+    issue_type = models.CharField(max_length=20, verbose_name=_("issue type"))
+    content = models.TextField(verbose_name=_("content"))
+    name = models.CharField(max_length=20, verbose_name=_("name"))
+    email = models.EmailField(blank=True, null=True, verbose_name=_("email"))
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='UNP', verbose_name=_("status"))
+    reply_at = models.DateTimeField(auto_now_add=True, verbose_name=_("reply_at"))
+    def __str__(self):
+        return "%s. %s" % (self.id, self.issue_type)
+    class Meta:
+        verbose_name = _("Issue Report")
+        verbose_name_plural = _("Issue Report")

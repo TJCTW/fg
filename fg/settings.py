@@ -25,7 +25,7 @@ SECRET_KEY = 'zf(y7(8#5*0=-4^_07y+!p-94ka#fn5(+)7za37$5utdg*h*3v'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1","140.115.54.64"]
 
 
 # Application definition
@@ -118,6 +118,15 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+# Email
+
+EMAIL_USE_SSL = True
+EMAIL_HOST = 'smtp.gmail.com' 
+EMAIL_PORT = 465
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+DEFAULT_FROM_EMAIL = '我要去團契 <>'
 
 # 語言選單
 from django.utils.translation import gettext_lazy as _

@@ -30,7 +30,7 @@
     }
 
     .container {
-        height: 900% !important;
+        height: 800% !important;
         width: 100% !important;
     }
 
@@ -51,20 +51,18 @@
 <div id="navbar">
     <nav class="navbar navbar-dark bg-info  navbar-static-top" role="navigation">
         
-			<div class="navbar-header">
-            <a href="#" class="navbar-brand d-flex align-items-center">
-                <img alt="TJC" src="{% static "images/logo.png" %}" height="10%">
-                <h3 class="hidden-lg hidden-md">我要去團契</h3>
+            <a href="#" class="navbar-brand align-items-center">
+                <img alt="TJC" class="d-inline-block align-top" src="{% static "images/logo.png" %}" height="30px">
+                我要去團契
             </a>
-        </div>
     </nav>
 </div>
     <div class="container">
         <div class="page" id="page1">
-            <div class="row" style="max-height:90%">
+            <div class="row" style="max-height:80%">
                 <div class="col-md text-center">
                     <img src="{% static "img/fg-01-768.png" %}" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
-                        style="max-height:80%">
+                        style="max-height:400px">
                     <!-- <img src="{% static "img/fg-01-768.png" srcset="fg-01-768.png 768w,fg-01-992.png 992w" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
                         alt=""> -->
 
@@ -121,19 +119,15 @@
             </div>
         </div>
         <div class="page">
-            <div class="row justify-content-end">
-                <div class="col-md-6 text-center">
-                    <img src="{% static "img/fg-05-600.png" %}" srcset="{% static "img/fg-05-384.png" %} 768w,{% static "img/fg-05-496.png" %} 992w" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
-                        alt="">
-
-                </div>
-            </div>
-        </div>
-        <div class="page">
             <div class="row">
                 <div class="col-md-6 text-center">
                     <img src="{% static "img/fg-06-900.png" %}" srcset="{% static "img/fg-06-576.png" %} 768w,{% static "img/fg-06-744.png" %} 992w" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
                         alt="">
+                </div>
+                <div class="col-md-6 text-center">
+                    <img src="{% static "img/fg-05-600.png" %}" srcset="{% static "img/fg-05-384.png" %} 768w,{% static "img/fg-05-496.png" %} 992w" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
+                        alt="">
+
                 </div>
             </div>
         </div>
